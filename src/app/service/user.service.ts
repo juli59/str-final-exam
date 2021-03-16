@@ -27,7 +27,7 @@ export class UserService {
    * @param id {number} user id.
    * @returns an observable with a user object.
    */
-  get(id: number): Observable<User> {
+  get(id: number | string): Observable<User> {
     return this.http.get<User>(`${this.endpoint}/${id}`);
   }
 

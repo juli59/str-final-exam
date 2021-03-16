@@ -35,7 +35,7 @@
           name="address"
           [(ngModel)]="user.address" pattern=".{8,100}" required>
           <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine" class="alert">
-            A név legalább 8 legfeljebb 40 karakterből kell, hogy álljon.
+            A cím legalább 8 legfeljebb 100 karakterből kell, hogy álljon.
         </div>
       </div>
       <div class="form-group">
@@ -46,7 +46,7 @@
           <option [ngValue]="false">inactive</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary btn-block mt-5">
+      <button [disabled]="userForm.invalid"  type="submit" class="btn btn-primary btn-block mt-5">
         <i class="fa fa-save"></i>
       </button>
     </form>
