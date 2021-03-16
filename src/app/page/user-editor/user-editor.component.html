@@ -10,17 +10,21 @@
         class="form-control"
         type="text"
         name="name"
-        [(ngModel)]="user.name">
+        [(ngModel)]="user.name" pattern=".{8,40}" required>
+        <div [hidden]="userForm.controls.name?.valid || userForm.controls.name?.pristine" class="alert">
+          A név legalább 8 legfeljebb 40 karakterből kell, hogy álljon.
+      </div>
       </div>
       <div class="form-group">
         <label>Email</label>
+
         <!-- Validation: valid email, required.
           Help: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript -->
           <input
           class="form-control"
           type="text"
           name="email"
-          [(ngModel)]="user.email">
+          [(ngModel)]="user.email" required>
         </div>
         <div class="form-group">
           <label>Address</label>
@@ -29,7 +33,10 @@
           class="form-control"
           type="text"
           name="address"
-          [(ngModel)]="user.address">
+          [(ngModel)]="user.address" pattern=".{8,100}" required>
+          <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine" class="alert">
+            A név legalább 8 legfeljebb 40 karakterből kell, hogy álljon.
+        </div>
       </div>
       <div class="form-group">
         <label>Active</label>

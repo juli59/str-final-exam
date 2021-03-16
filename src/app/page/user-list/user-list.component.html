@@ -1,19 +1,33 @@
 <div class="row">
   <div class="col-12 mt-2">
+
+    <input [(ngModel)]="filterPhrase"
+    class="form-control" type="text" placeholder="Keresés..." >
+    <!-- <select [(ngModel)]="filterKey" class="form-control" filter-select name="" id="">
+
+
+    <option>value="id">id</option>
+    <option>value="name">name</option>
+    <option>value="email">email</option>
+    <option>value="address">address</option>
+    <option>value="active">active</option>
+  </select> -->
+
     <h2>User List</h2>
+  <button class="btn btn-block btn-primary"></button>
     <table class="table table-striped">
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Active</th>
+        <tr *ngFor>
+          <th (click)="changeOrder('id')" >#</th>
+          <th (click)="changeOrder('')">Name</th>
+          <th (click)="changeOrder('email')">Email</th>
+          <th click)="changeOrder('address)">Address</th>
+          <th (click)="changeOrder('active')">Active</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async">
+        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
@@ -24,7 +38,7 @@
               <button [routerLink]="['user/' + user.id]" class="btn btn-info">
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-danger">
+              <button (click)="onDelete(user)" class="btn btn-danger">
                 <i class="fa fa-trash"></i>
               </button>
             </div>

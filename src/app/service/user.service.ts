@@ -35,19 +35,38 @@ export class UserService {
    * Delete a user from the database.
    * The method is: this.http.delete
    */
-
+  remove(user: User): void {
+    this.http.delete<User>(
+      `${this.endpoint}/${user.id}`
+    ).subscribe(
+      ()=>this.getAll()
+    );
+  }
 
 
   /**
    * Create a user in the database.
    * The method is: this.http.post
    */
-
+  create(user:User): void {
+    this.http.post<User>(
+      `${this.endpoint}`,
+      (user)
+    ).subscribe (
+      ()=>this.getAll()
+    );
+  }
 
 
   /**
    * Update a user in the database.
    * The method is: this.http.patch
    */
-
+   update(user: User): void {
+    this.http.patch<User>(
+      `${this.endpoint}/${user.id}`,
+    user).subscribe(
+      ()=>this.getAll()
+    );
+  }
 }
