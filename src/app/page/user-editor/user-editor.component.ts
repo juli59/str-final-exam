@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 // import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -37,6 +38,13 @@ user: User = new User()
   ) { }
 
   ngOnInit(): void {
+this.userService.getAll();
+this.activatedRoute.params.subscribe(
+  params=>
+  this.userService.get(params.idOrName).subscribe(
+    user => this.user=user || new User()
+  )
+);
 
   }
 // onFormSubmit(form: Ngform): void {
