@@ -14,15 +14,17 @@
   </select> -->
 
     <h2>User List</h2>
-  <button class="btn btn-block btn-primary"></button>
+  <button class="btn btn-block btn-primary">
+    <i class="fa fa-edit"></i>
+  </button>
     <table class="table table-striped">
       <thead>
-        <tr *ngFor>
-          <th (click)="changeOrder('id')" >#</th>
-          <th (click)="changeOrder('')">Name</th>
-          <th (click)="changeOrder('email')">Email</th>
-          <th click)="changeOrder('address)">Address</th>
-          <th (click)="changeOrder('active')">Active</th>
+        <tr>
+          <th >#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Active</th>
           <th></th>
         </tr>
       </thead>
