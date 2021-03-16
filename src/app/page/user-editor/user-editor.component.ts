@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-editor.component.scss']
 })
 export class UserEditorComponent implements OnInit {
-
+user: User = new User()
   /**
    * user$ {Observable<User>}
    * Can be two different type of User:
@@ -36,7 +36,8 @@ export class UserEditorComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit(): void {;
+  ngOnInit(): void {
+
   }
 // onFormSubmit(form: Ngform): void {
 //   this.userService.update(this.user);
